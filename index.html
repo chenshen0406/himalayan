@@ -1,0 +1,436 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+   	 	<meta name="viewport" content="width=device-width">
+			<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+			<script src="https://d3js.org/d3.v4.min.js"></script>
+	</head>
+
+	<body>
+
+		<div id='title-part' style="position:fixed;width:100%;height:100%;background-image:url(./img/background.png);background-size:cover;z-index:-10;">
+			<div id='titlePic' style="width:100%;height:100%;position:absolute;left:0;top:0">
+				<img src='./img/title1.png' style='width:100%;height:100%'>
+			</div>
+			<!-- <div id='titlePic_bg' style="width:100%;position:absolute;left:0;bottom:0">
+				<img src='./img/title_bg.png' style='width:100%;bottom:0'>
+			</div> -->
+		</div>
+
+		<div class="container">
+			<div class='viewOne' id="random-dots" >
+				<div id="linePic" style='position:absolute;width:100%;opacity:0;top:30%;'>
+					<img src="./img/line1.png"/>
+				</div>
+				<div id="calculatorPic" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/calculator.png"/>
+				</div>
+				<div id="numberPic1" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/number1.png"/>
+				</div>
+				<div id="numberPic2" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/number2.png"/>
+				</div>
+				<div id="numberPic3" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/number3.png"/>
+				</div>
+				<div id="numberPic4" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/number4.png"/>
+				</div>
+				<div id="numberPic5" style='position:absolute;width:100%;opacity:0;top:0;'>
+					<img src="./img/number5.png"/>
+				</div>
+				<div class="moneybox" id="leafContainer" style="opacity:0;z-index:-10">
+				</div>
+				<div id="equPic" style='position:absolute;left:0;top:0;width:100%;height:100%;opacity:0'>
+					<img src='./img/equ.png' style='width:100%;height:100%'>
+				</div>
+
+				<div id="shuidaiPic" class="equdetail" style='position:absolute;left:0;top:0;width:100%;height:100%;opacity:0'>
+					<img src='./img/shuidai.png' style='width:100%;height:100%'>
+				</div>
+				<div id="bagPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/bag.png' style='width:100%;height:100%'>
+				</div>
+				<div id="hatPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/hat.png' style='width:100%;height:100%'>
+				</div>
+				<div id="glassPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/glass.png' style='width:100%;height:100%'>
+				</div>
+				<div id="clothPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/cloth.png' style='width:100%;height:100%'>
+				</div>
+				<div id="pantsPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/pants.png' style='width:100%;height:100%'>
+				</div>
+				<div id="shoesPic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/shoes.png' style='width:100%;height:100%'>
+				</div>
+				<div id="securePic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/secure.png' style='width:100%;height:100%'>
+				</div>
+				<div id="glovePic" class="equdetail" style='position:absolute;left:0;width:100%;top:0;height:100%;opacity:0'>
+					<img src='./img/glove.png' style='width:100%;height:100%'>
+				</div>
+				<div id="guaizhangPic" class="equdetail" style='position:absolute;top:0;left:0;width:100%;height:100%;opacity:0'>
+					<img src='./img/guaizhang.png' style='width:100%;height:100%'>
+				</div>
+				<div id='equ-button'>
+					<button id='shuidai' class="flash buttonanimated infinite" onClick="shuidai()" style="position:absolute;left:25%;top:40%"></button>
+					<button id='bag' class="flash buttonanimated infinite" onClick="bag()" style="position:absolute;left:25%;top:75%"></button>
+					<button id='hat' class="flash buttonanimated infinite" onClick="hat()" style="position:absolute;left:50%;top:25%"></button>
+					<button id='glass' class="flash buttonanimated infinite" onClick="glass()" style="position:absolute;left:50%;top:29%"></button>
+					<button id='cloth' class="flash buttonanimated infinite" onClick="cloth()" style="position:absolute;left:50%;top:40%"></button>
+					<button id='pants' class="flash buttonanimated infinite" onClick="pants()" style="position:absolute;left:50%;top:60%"></button>
+					<button id='shoes' class="flash buttonanimated infinite" onClick="shoes()" style="position:absolute;left:50%;top:80%"></button>
+					<button id='secure' class="flash buttonanimated infinite" onClick="secure()" style="position:absolute;left:70%;top:35%"></button>
+					<button id='glove' class="flash buttonanimated infinite" onClick="glove()" style="position:absolute;left:63%;top:50%"></button>
+					<button id='guaizhang' class="flash buttonanimated infinite" onClick="guaizhang()" style="position:absolute;left:70%;top:60%"></button>
+				</div>
+				<div id="chooselinePic" style='position:absolute;width:80%;margin-left:10%;display:none;top:15%;'>
+					<img src="./img/choose_line.png"/>
+				</div>
+				<div id="linedetailPic" style='position:absolute;width:100%;display:none;top:15%;'>
+					<img src="./img/line_detail.png"/>
+				</div>
+				<div id='line-button'>
+					<button id='south' class='line-button' onClick="south()" style="position:absolute;left:12%;top:60%">南线公司（59K）</button>
+					<button id='north' class='line-button'onClick="north()" style="position:absolute;left:65%;top:60%">北线公司（70.8K）</button>
+				</div>
+				<div id="billPic" style='position:absolute;width:100%;display:none;top:15%;'>
+					<img src="./img/bill.png"/>
+				</div>
+			</div>
+
+
+			<div id='lead' class='TextWrapper_div' style='position:absolute;margin-top:200%;'>
+					<div class='TextWrapper'>
+						<p>每年的3~5月和9~10月，北印度洋上大陆和海洋季风交接，“空窗期”长则四五天，短则三五天，是最适合冲顶珠峰的时机。</p>
+						<br />
+						<p>今年过短的窗口期，极具视觉冲击力的“8000米上的大拥堵”，让大家的视线再次聚焦“珠峰热”。</p>
+				 </div>
+			 </div>
+			 <div class='TextWrapper_div' style='position:absolute;margin-top:400%;'>
+	 				<div class='TextWrapper'>
+						<p>根据“珠峰编年史记录者”Alan Arnette统计的数据，2019年春季已有900人登顶珠峰，创历史新高。</p>
+	 			 </div>
+ 			 </div>
+			 <div class='TextWrapper_div' style='position:absolute;margin-top:600%;'>
+	 				<div class='TextWrapper'>
+						<p>随着登山技术和装备的进步，登顶珠峰早已不是职业登山者的专属。某种意义上来说，攀登珠峰的路是用票子铺成的。</p>
+						<br />
+						<p>问鼎珠峰究竟需要多少钱？跟着数据君一起来做预算吧~</p>
+	 			 </div>
+ 			 </div>
+			 <div class='TextWrapper_div' style='position:absolute;margin-top:800%;'>
+				 <div class='TextWrapper'>
+					 <center>
+						 <p>STEP 1 选装备 </p>
+					 </center>
+					 <br />
+					 <p>在珠峰登山活动公告的个人攀登珠峰必备装备清单中，装备包括服装类、技术装备类、辅助装备等共计43种，其中仅上衣类就包含羊毛围兜、帽衫、夹克、防水服、风衬衫、硬软壳冲锋衣、软壳保暖衣、拉链衬衫、远征羽绒服等。</p>
+				</div>
+				</div>
+				<div class='TextWrapper_div' style='position:absolute;margin-top:1200%;'>
+					 <div class='TextWrapper'>
+						 <p>
+							据Alan Arnette介绍，如果所有产品都要新购买的话，一套装备至少花费7000美元。
+						 </p>
+						 <br />
+						 <p>
+							如果想在登山过程中大幅度降低危险和困难，部分登山爱好者还会购买全套冰雪技术装备和GPS、卫星电话、氧气瓶等特殊装备，价格会更加高昂。
+						 </p>
+					</div>
+				</div>
+				<div class='TextWrapper_div' style='position:absolute;margin-top:1400%;'>
+					<div class='TextWrapper'>
+						<center>
+							<p>STEP 2 选路线 </p>
+						</center>
+						<br />
+						<p>一座珠峰，已经被开发出19条不同的登顶道路。其中，最容易的是南坡传统路线（从尼泊尔境内出发）和北坡传统路线（从中国西藏境内出发），这两条也是商业化程度比较高的路线——向登山公司缴纳一定费用，便能获得庞大团队的协助，帮你达成登顶事业。</p>
+				 </div>
+				 </div>
+				 <div class='TextWrapper_div' style='position:absolute;margin-top:1600%;'>
+ 					<div class='TextWrapper'>
+						<p>
+							动辄数万美元的登山报价，却没有公司列出每项服务的明细，数据君不免好奇交给登山公司的钱都花到哪里去了。而这或许可以从Alan Arnette的经验描述中找到参考答案。
+						</p>
+ 				 </div>
+ 				 </div>
+				 <div class='TextWrapper_div' style='position:absolute;margin-top:1800%;'>
+					 <div class='TextWrapper'>
+					 <p>费用更便宜，加上不用报批，不少“山友”选择从南侧攀登珠峰。今年春季登顶的900人中，659人是从尼泊尔境内出发的。</p>
+		 		 	<br />
+					 <p>
+						 想好选择走哪条线路了吗？
+					 </p>
+					</div>
+					</div>
+					<div class='TextWrapper_div' style='position:absolute;margin-top:2000%;'>
+						<div class='TextWrapper'>
+							<center>
+								<p>STEP 2 其它费用 </p>
+							</center>
+							<br />
+							<p>
+								团队费用基本可以覆盖登山者在拉萨或加德满郡下飞机后的登顶必要花费，但仍有一些费用需要自行支付。
+							</p>
+					 </div>
+					 </div>
+					 <div class='TextWrapper_div' style='position:absolute;margin-top:2200%;'>
+ 						<div class='TextWrapper'>
+ 							<center>
+								<p style="font-size:18px;font-weight:bold;font-family:'hei'">
+									恭喜你已完成自己的探险预算~
+	 							</p>
+							</center>
+							<hr/>
+							<br />
+							<p>
+								登顶珠峰的价格或许可以计算，但更无价的是生命。截至目前，已有306人在攀登珠峰中丧生，经验不足是其中一个重要死因。
+ 							</p>
+							<br />
+							<p>
+								金钱开道之外，问鼎珠峰更需要登山者拥有熟练的攀爬技巧、完备的体能训练以及强大的心理素质。
+ 							</p>
+							<br />
+							<p>
+								毕竟，登顶并不是最终目标，平安回家才是。
+ 							</p>
+							<br />
+							<br />
+							<br />
+							<br />
+							<center>
+								<p style="font-size:13px;">
+									数据来源：The  Himalayan Database、alanarnette.com、各登山公司官网
+	 							</p>
+							</center>
+ 					 </div>
+ 					 </div>
+					 <div class='TextWrapper_div' style='position:absolute;margin-top:2330%;opacity:0'>
+						 <div class='TextWrapper'>
+								 <p></p>
+						</div>
+					</div>
+
+		</div>
+
+		<div class='scroll-container'>
+			<div class='scroll-scene'  style='position:absolute;top:100%' id='disappear-title'></div>
+			<div class='scroll-scene'  style='position:absolute;top:200%' id='disappear-lede'></div>
+			<div class='scroll-scene'  style='position:absolute;top:300%' id='fall-money1'></div>
+			<div class='scroll-scene'  style='position:absolute;top:400%' id='show-equ'></div>
+			<div class='scroll-scene'  style='position:absolute;top:600%' id='fall-money2'></div>
+			<div class='scroll-scene'  style='position:absolute;top:700%' id='choose-line'></div>
+			<div class='scroll-scene'  style='position:absolute;top:900%' id='line-detail'></div>
+			<div class='scroll-scene'  style='position:absolute;top:1000%' id='line-buttonpart'></div>
+			<div class='scroll-scene'  style='position:absolute;top:1100%' id='show-bill'></div>
+			<div class='scroll-scene'  style='position:absolute;top:1200%' id='fall-money3'></div>
+
+		</div>
+
+
+		<script>
+		function south()
+					{
+						var img2 = document.getElementById("numberPic2");
+						img2.style.opacity="0";
+					var img3 = document.getElementById("numberPic3");
+					img3.style.opacity="1";
+					var img4 = document.getElementById("numberPic4");
+					img4.style.opacity="0";
+					return false;
+				};
+		function north()
+					{
+						var img2 = document.getElementById("numberPic2");
+					img2.style.opacity="0";
+					var img4 = document.getElementById("numberPic4");
+					img4.style.opacity="1";
+					var img3 = document.getElementById("numberPic3");
+					img3.style.opacity="0";
+					return false;
+				};
+		function shuidai()
+					{
+					var img = document.getElementById("shuidaiPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function bag()
+					{
+					var img = document.getElementById("bagPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function hat()
+					{
+					var img = document.getElementById("hatPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function glass()
+					{
+					var img = document.getElementById("glassPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function cloth()
+					{
+					var img = document.getElementById("clothPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function glove()
+					{
+					var img = document.getElementById("glovePic");
+					img.style.opacity="1";
+					return false;
+				};
+		function pants()
+					{
+					var img = document.getElementById("pantsPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function shoes()
+					{
+					var img = document.getElementById("shoesPic");
+					img.style.opacity="1";
+					return false;
+				};
+		function secure()
+					{
+					var img = document.getElementById("securePic");
+					img.style.opacity="1";
+					return false;
+				};
+		function guaizhang()
+					{
+					var img = document.getElementById("guaizhangPic");
+					img.style.opacity="1";
+					return false;
+				};
+			const NUMBER_OF_LEAVES = 100;
+		  const width=document.getElementById('title-part').clientWidth;
+			const height=document.getElementById('title-part').clientHeight;
+		function init(){
+		    var container = document.getElementById('leafContainer');
+		    for (var i = 0; i < NUMBER_OF_LEAVES; i++)
+		    {
+		        container.appendChild(createALeaf());
+		    }
+
+		}
+		function randomInteger(low, high)
+		{
+		    return low + Math.floor(Math.random() * (high - low));
+		}
+		function randomFloat(low, high)
+		{
+		    return low + Math.random() * (high - low);
+		}
+		function pixelValue(value)
+		{
+		    return value + 'px';
+		}
+
+		function durationValue(value)
+		{
+		    return value + 's';
+		}
+		function createALeaf()
+		{
+		    var leafDiv = document.createElement('div');
+		    var image = document.createElement('img');
+		    image.src = 'img/cash' + randomInteger(3, 7) + '.png';
+		    // leafDiv.style.top = pixelValue(randomInteger(height-200,height-30));
+				leafDiv.style.top = -100+'px';
+		    leafDiv.style.left = pixelValue(randomInteger(-50, width));
+		    var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+		    leafDiv.style.webkitAnimationName = 'fade, drop';
+		    image.style.webkitAnimationName = spinAnimationName;
+		    var fadeAndDropDuration = durationValue(randomFloat(3, 9));
+		    var spinDuration = durationValue(randomFloat(3, 7));
+		    leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+		    var leafDelay = durationValue(randomFloat(0, 0));
+		    leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+		    image.style.webkitAnimationDuration = spinDuration;
+		    leafDiv.appendChild(image);
+		    return leafDiv;
+		}
+		function createALeaf2()
+		{
+		    var leafDiv = document.createElement('div');
+		    var image = document.createElement('img');
+		    image.src = 'img/cash' + randomInteger(3, 7) + '.png';
+		    leafDiv.style.top = pixelValue(randomInteger(height-100,height-30));
+				// leafDiv.style.top = -100+'px';
+		    leafDiv.style.left = pixelValue(randomInteger(-50, width));
+		    var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+		    leafDiv.style.webkitAnimationName = 'fade, drop2';
+		    image.style.webkitAnimationName = spinAnimationName;
+		    var fadeAndDropDuration = durationValue(randomFloat(3, 9));
+		    var spinDuration = durationValue(randomFloat(3, 7));
+		    leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+		    var leafDelay = durationValue(randomFloat(0, 0));
+		    leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+		    image.style.webkitAnimationDuration = spinDuration;
+		    leafDiv.appendChild(image);
+		    return leafDiv;
+		}
+		function createALeaf3()
+		{
+		    var leafDiv = document.createElement('div');
+		    var image = document.createElement('img');
+		    image.src = 'img/cash' + randomInteger(3, 7) + '.png';
+		    leafDiv.style.top = pixelValue(randomInteger(height-500,height-30));
+				// leafDiv.style.top = -100+'px';
+		    leafDiv.style.left = pixelValue(randomInteger(-50, width));
+		    var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+		    leafDiv.style.webkitAnimationName = 'fade, drop2';
+		    image.style.webkitAnimationName = spinAnimationName;
+		    var fadeAndDropDuration = durationValue(randomFloat(3, 9));
+		    var spinDuration = durationValue(randomFloat(3, 7));
+		    leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+		    var leafDelay = durationValue(randomFloat(0, 0));
+		    leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+		    image.style.webkitAnimationDuration = spinDuration;
+		    leafDiv.appendChild(image);
+		    return leafDiv;
+		}
+		function createALeaf4()
+		{
+		    var leafDiv = document.createElement('div');
+		    var image = document.createElement('img');
+		    image.src = 'img/cash' + randomInteger(3, 7) + '.png';
+		    leafDiv.style.top = pixelValue(randomInteger(height-900,height-400));
+				// leafDiv.style.top = -100+'px';
+		    leafDiv.style.left = pixelValue(randomInteger(-50, width));
+		    var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+		    leafDiv.style.webkitAnimationName = 'fade, drop2';
+		    image.style.webkitAnimationName = spinAnimationName;
+		    var fadeAndDropDuration = durationValue(randomFloat(3, 9));
+		    var spinDuration = durationValue(randomFloat(3, 7));
+		    leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+		    var leafDelay = durationValue(randomFloat(0, 0));
+		    leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+		    image.style.webkitAnimationDuration = spinDuration;
+		    leafDiv.appendChild(image);
+		    return leafDiv;
+		}
+		// window.addEventListener('load', init, false);
+
+		// window.onload=function(){
+		// 	document.getElementById("fall").addEventListener("click",init);
+		// };
+
+		</script>
+	 		<script src='./bundle.js' type='text/javascript'></script>
+
+	 </body>
+</html>
